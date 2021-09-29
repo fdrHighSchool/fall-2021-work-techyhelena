@@ -17,22 +17,24 @@ public class RocketShip {
   public static void square() {
     System.out.println("+------+");
     line();
-    System.out.println("+------+");
 
   } //closes square function
 
-  
+  //start of United States box
+  public static void US() {
+    System.out.println("+------+");
+    System.out.println("|United|");
+    System.out.println("|States|");
+  } 
 
 
 
   public static void main(String[] args) {
     triangle();
     square();
-
-
-
-} //closes main
-
-
-
+    US();
+    square();
+    System.out.println("+------+");
+    triangle();
+  } //closes main
 } // end class
