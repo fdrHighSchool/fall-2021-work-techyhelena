@@ -7,7 +7,7 @@ public class RocketShip {
   } //closes triangle function
 
 
-  //makes the vertical 
+  //makes the vertical
   public static void line() {
     System.out.println("|      |");
     System.out.println("|      |");
@@ -25,10 +25,9 @@ public class RocketShip {
     System.out.println("+------+");
     System.out.println("|United|");
     System.out.println("|States|");
-  } 
+  }
 
-
-
+  //rocketship is being made here
   public static void main(String[] args) {
     triangle();
     square();
