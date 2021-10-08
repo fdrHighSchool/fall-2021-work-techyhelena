@@ -9,6 +9,10 @@ void draw() {
 }
 
 void stopSign() {
+  
+  //Text
+  fill(0, 0, 0);
+  text("STOP", 125, 75 );
   strokeWeight(1);
   fill(207, 20, 43);
   beginShape();
@@ -24,12 +28,14 @@ void stopSign() {
 }
 
 void stopStick(){
-  line(58, 250, 130, 140);
+  //stroke(165,42,42); //to change the color of the line
+  strokeWeight(5); // increases the thickness of the line
+  line(75, 250, 75, 155);
 }
+
 void crossLine() {
   size(600, 600);
   strokeWeight(9); // increases the thickness of the line
-line(0, 250, 600, 250); // (the first point, in charge of the orientation)
-
+  line(0, 250, 600, 250); // (the first point, in charge of the orientation)
 }
 
