@@ -12,7 +12,7 @@ void stopSign() {
   
   //Text
   fill(0, 0, 0);
-  text("STOP", 125, 75 );
+  text("STOP", 95, 75 );
   strokeWeight(1);
   fill(207, 20, 43);
   beginShape();
@@ -22,8 +22,8 @@ void stopSign() {
   vertex(125, 125); // right-bottom
   vertex(100, 150); // bottom-right
   vertex(50, 150); // bottom-left
-  vertex(25, 125);
-  vertex(25, 75); 
+  vertex(25, 125); // 
+  vertex(25, 75); //top-left
   endShape();
 }
 
@@ -38,4 +38,3 @@ void crossLine() {
   strokeWeight(9); // increases the thickness of the line
   line(0, 250, 600, 250); // (the first point, in charge of the orientation)
 }
-
