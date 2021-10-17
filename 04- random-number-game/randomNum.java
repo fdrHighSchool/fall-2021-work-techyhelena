@@ -16,11 +16,11 @@ public class randomNum {
         }
         //if user guesses too high
         if (userNum > targetNum) {
-            System.out.println("Your number was too high :^0" + " The number was " + targetNum);
+            System.out.println("Your number was too high :^0" + "\nThe number was " + targetNum + "\nThank you for playing!");
         }
         //if user guesses too low
         if (userNum < targetNum) {
-            System.out.println("Your number was too low :'(" + " The number was " + targetNum);
+            System.out.println("Your number was too low :'(" + "\nThe number was " + targetNum + "\nThank you for playing!");
         }
     
         myObj.close();
