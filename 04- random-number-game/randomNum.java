@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class randomNum { 
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in); //Create a Scanner Object
-
         //asks user to pick a number 
         System.out.println("Pick a number from 1-20");
         int userNum = myObj.nextInt();
@@ -17,11 +16,11 @@ public class randomNum {
         }
         //if user guesses too high
         if (userNum > targetNum) {
-            System.out.println("Too high, try again :)");
+            System.out.println("Your number was too high :^0" + " The number was " + targetNum);
         }
         //if user guesses too low
         if (userNum < targetNum) {
-            System.out.println("Too low, try again :)");
+            System.out.println("Your number was too low :'(" + " The number was " + targetNum);
         }
     
         myObj.close();
