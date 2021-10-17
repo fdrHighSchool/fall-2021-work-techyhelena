@@ -12,19 +12,19 @@ public class randomNum {
         int targetNum = ((int)(Math.random()*20 +1));
         //output 
         //if user guesses correctly 
-        if (userNum = targetNum) {
+        if (userNum == targetNum) {
             System.out.println("Good job, you've guessed it correctly!");
         }
         //if user guesses too high
         if (userNum > targetNum) {
             System.out.println("Too high, try again :)");
         }
-
+        //if user guesses too low
         if (userNum < targetNum) {
             System.out.println("Too low, try again :)");
         }
         
-        //output close
+
         myObj.close();
     } //closing bracket for main
 } //closing bracket for public class
