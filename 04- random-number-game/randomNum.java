@@ -1,8 +1,14 @@
 import java.util.Scanner;
+import java.util.Response;
 
 public class randomNum {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in); //Create a Scanner Object
+        Scanner userResponse = new Scanner(System.in); //another scanner object
+        //welcomes user into the game
+        System.out.println("Welcome, would you like to play a game?" + "\nYes (y)" + "No (n)");
+        
+
         //asks user to pick a number
         System.out.println("Pick a number from 1-20");
         //variable for the number of tries user has
