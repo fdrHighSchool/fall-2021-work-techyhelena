@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Random Number Game
 ## What I Learned:
 
@@ -8,3 +9,10 @@
 
 - [ ] To make loops so that users could play more than once
 - [ ]
+=======
+# Random Number Game 
+
+## What I Learned:
+- I learned that `.equals` is used specifically to compare two or more strings.
+- The Scanner function `import util Scanner` is used to get user input. 
+>>>>>>> 2f943d507da3654b9f0421b9d490abc0245264c7
