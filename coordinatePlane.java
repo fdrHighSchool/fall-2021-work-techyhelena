@@ -6,6 +6,22 @@ public class coordinatePlane {
     // instantiate a scanner object
     Scanner s = new Scanner(System.in);
 
+    System.out.println("Which of the following do you want?");
+    System.out.print("1. Distance Calculator \n2. Area Calculator\n");
+
+    int choice = s.nextInt();
+
+    if (choice == 1) {
+      distance();
+    } //end if statement
+    else {
+      area();
+    }
+  }// end main method
+
+  public static void distance() {
+    Scanner s = new Scanner(System.in);
+
     System.out.print("please input a coordinate: ");
     String point1 = s.nextLine();
 
@@ -20,7 +36,23 @@ public class coordinatePlane {
 
     crowsDistance(x1, y1, x2, y2);
     taxicabDistance(x1, y1, x2, y2);
-  }// end main method
+  }
+
+  //area function
+  public static void area() {
+    Scanner s = new Scanner(System.in);
+
+    System.out.println("What shape do you want to know the area of?");
+    System.out.print("1. Square\n");
+
+    int choice = s.nextInt();
+
+    if (choice == 1) {
+      square();  
+    }
+
+
+  }
 
   /*
    * Name: getX
