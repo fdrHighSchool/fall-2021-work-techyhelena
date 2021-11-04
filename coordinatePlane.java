@@ -48,11 +48,16 @@ public class coordinatePlane {
     int choice = s.nextInt();
 
     if (choice == 1) {
-      square();  
+      square();
     }
 
+  } //end of area()
+  
+  //square function
+  public static void square() {
+    Scanner s = new Scanner(System.in);
 
-  }
+  } // end square method
 
   /*
    * Name: getX
