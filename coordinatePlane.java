@@ -36,6 +36,8 @@ public class coordinatePlane {
 
     crowsDistance(x1, y1, x2, y2);
     taxicabDistance(x1, y1, x2, y2);
+
+    System.out.println(slope(int x1, int y1, int x2, int y2));
   }
 
   //area function
@@ -52,12 +54,29 @@ public class coordinatePlane {
     }
 
   } //end of area()
-  
+
   //square function
   public static void square() {
     Scanner s = new Scanner(System.in);
 
+
   } // end square method
+
+  /*
+  *Name: slope
+  *Purpose: find the slope between 2 points
+  *Input: 2 points, already parsed (4 points)
+  *Return: double
+  */
+
+  public static double slope(int x1, int y1, int x2, int y2) {
+    //formula: (y2 - y1) / (x2 - x1)
+    if (x1 != x2) {
+      return (y2 - y1) / (x2 - x1);
+    }
+    return 0.0;
+  }
+
 
   /*
    * Name: getX
