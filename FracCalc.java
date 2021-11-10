@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class FracCalc {
 
     /**
@@ -8,10 +9,11 @@ public class FracCalc {
     public static void main(String[] args){
         // TODO: Read the input from the user and call produceAnswer with an equation
         Scanner s = new Scanner(System.in);
-        System.out.print("Welcome, please input an equation involving fractions." + " Type 'quit' to stop");
-
-
+        System.out.print("Fraction Calculator: Please enter a fraction problem. ");
+        //Getting user input 
+        String userInput = s.nextLine();
         // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
+        produceAnswer(userInput);
         // Checkpoint 2: Accept user input multiple times.
     }//end main method
 
@@ -25,7 +27,6 @@ public class FracCalc {
     public static String produceAnswer(String input){
         // TODO: Implement this function to produce the solution to the input
         // Checkpoint 1: Return the second operand.  Example "4/5 * 1_2/4" returns "1_2/4".
-
         // Checkpoint 2: Return the second operand as a string representing each part.
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
         // Checkpoint 3: Evaluate the formula and return the result as a fraction.
