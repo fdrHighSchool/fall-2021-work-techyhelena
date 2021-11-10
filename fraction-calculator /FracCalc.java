@@ -30,7 +30,7 @@ public class FracCalc {
         Scanner s = new Scanner(input);
         // Checkpoint 1: Return the second operand.  Example "4/5 * 1_2/4" returns "1_2/4".
         //space
-        int space = (String " ");
+        int space = (userInput.indexOf(" "));
         String equation = s.nextLine();
 
 
