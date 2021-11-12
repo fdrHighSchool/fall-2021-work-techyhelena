@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class FracCalc {
-
     /**
      * Prompts user for input, passes that input to produceAnswer, then outputs the result.
      * @param args - unused
@@ -9,9 +8,12 @@ public class FracCalc {
     public static void main(String[] args){
         // TODO: Read the input from the user and call produceAnswer with an equation
         Scanner s = new Scanner(System.in);
-        System.out.print("Fraction Calculator: Please enter a fraction problem. ");
+        System.out.println("Fraction Calculator: Please enter a fraction problem. ");
+        //allow user to type quit to stop
+        System.out.println("Disclaimer: If you wish to quit, simply type 'quit'");
         //Getting user input
         String userInput = s.nextLine();
+        System.out.println(secondOperand);
         // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
         produceAnswer(userInput);
         // Checkpoint 2: Accept user input multiple times.
@@ -29,25 +31,28 @@ public class FracCalc {
         //scans what the userInput has
         Scanner s = new Scanner(input);
         // Checkpoint 1: Return the second operand.  Example "4/5 * 1_2/4" returns "1_2/4".
-        //space
-        int space = (userInput.indexOf(" "));
-        String equation = s.nextLine();
+        //split the equation into parts and store them into variables
+        //next() can read the input only until a space(" ") is encountered
+        String firstOperand = s.next();
+        String secondOperand = s.next();
+        String operation = s.next();
 
-
-
-
-
+        //testing
+        System.out.println(secondOperand);
 
 
         // Checkpoint 2: Return the second operand as a string representing each part.
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
+
+
+
         // Checkpoint 3: Evaluate the formula and return the result as a fraction.
         //               Example "4/5 * 1_2/4" returns "6/5".
         //               Note: Answer does not need to be reduced, but it must be correct.
         // Final project: All answers must be reduced.
         //               Example "4/5 * 1_2/4" returns "1_1/5".
 
-        return equation();
+        return firstOperand;
     }//end produceAnswer method
 
     // TODO: Fill in the space below with helper methods
@@ -59,9 +64,8 @@ public class FracCalc {
      * @param b - Second integer.
      * @return The GCD.
      */
-    public static int greatestCommonDivisor(int a, int b){
-
-    }//end greatestCommonDivisor method
+    // public static int greatestCommonDivisor(int a, int b){
+    // }//end greatestCommonDivisor method
 
     /**
      * leastCommonMultiple - Find the smallest integer that can be evenly divided by two integers.
@@ -70,8 +74,9 @@ public class FracCalc {
      * @param b - Second integer.
      * @return The LCM.
      */
-    public static int leastCommonMultiple(int a, int b){
+    // public static int leastCommonMultiple(int a, int b){
 
-    }//end leastCommonMultiple
+
+    // }//end leastCommonMultiple
 
 }//end class
