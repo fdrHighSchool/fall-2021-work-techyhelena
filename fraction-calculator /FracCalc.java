@@ -13,7 +13,6 @@ public class FracCalc {
         System.out.println("Disclaimer: If you wish to quit, simply type 'quit'");
         //Getting user input
         String userInput = s.nextLine();
-        System.out.println(secondOperand);
         // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
         produceAnswer(userInput);
         // Checkpoint 2: Accept user input multiple times.
@@ -28,17 +27,12 @@ public class FracCalc {
      */
     public static String produceAnswer(String input){
         // TODO: Implement this function to produce the solution to the input
-        //scans what the userInput has
-        Scanner s = new Scanner(input);
+
         // Checkpoint 1: Return the second operand.  Example "4/5 * 1_2/4" returns "1_2/4".
         //split the equation into parts and store them into variables
-        //next() can read the input only until a space(" ") is encountered
-        String firstOperand = s.next();
-        String secondOperand = s.next();
-        String operation = s.next();
-
-        //testing
-        System.out.println(secondOperand);
+        int space = input.indexOf(" ");
+        String firstOperand = input.substring(0, space);
+        String secondOperand = input.substring(space + 3);
 
 
         // Checkpoint 2: Return the second operand as a string representing each part.
