@@ -43,18 +43,31 @@ public class FracCalc {
      public static String getNum(String input) {
        //if there is a whole number the program will output it
        //if not, the program will output 0
-       if String whole = input.firstOperand(0, space) {
+       if String whole = firstOperand.substring(0, space) {
          System.out.print("whole: " + whole);
        } else {
          System.out.print("whole: " + 0);
        }
+       //variable for dash
+       String dash = input.indexOf("/");
+       String num = input.substring(space, dash);
 
-       String num = input.substring();
+       System.out.print(" numerator: " + num);
 
      } //end getNum
 
      public static String getDen(String input) {
-
+       //if there is a whole number the program will output it
+       //if not, the program will output 0
+       if String whole = firstOperand.substring(0, space) {
+         System.out.print("whole: " + whole);
+       } else {
+         System.out.print("whole: " + 0);
+       }
+       //variable for dash
+       String dash = input.indexOf("/");
+       String den = input.substring(space, dash);
+       System.out.print("denominator: " + den);
      } //end getDen
 
 
