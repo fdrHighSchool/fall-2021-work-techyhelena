@@ -14,7 +14,7 @@ public class FracCalc {
         //Getting user input
         String userInput = s.nextLine();
         // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
-        produceAnswer(userInput);
+        System.out.println(produceAnswer(userInput));
         // Checkpoint 2: Accept user input multiple times.
     }//end main method
 
@@ -33,10 +33,29 @@ public class FracCalc {
         int space = input.indexOf(" ");
         String firstOperand = input.substring(0, space);
         String secondOperand = input.substring(space + 3);
+        String operator = input.substring(space + 1);
 
+        return secondOperand;
+    }//end produceAnswer method
 
         // Checkpoint 2: Return the second operand as a string representing each part.
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
+     public static String getNum(String input) {
+       //if there is a whole number the program will output it
+       //if not, the program will output 0
+       if String whole = input.firstOperand(0, space) {
+         System.out.print("whole: " + whole);
+       } else {
+         System.out.print("whole: " + 0);
+       }
+
+       String num = input.substring();
+
+     } //end getNum
+
+     public static String getDen(String input) {
+
+     } //end getDen
 
 
 
@@ -46,8 +65,8 @@ public class FracCalc {
         // Final project: All answers must be reduced.
         //               Example "4/5 * 1_2/4" returns "1_1/5".
 
-        return firstOperand;
-    }//end produceAnswer method
+
+
 
     // TODO: Fill in the space below with helper methods
 
