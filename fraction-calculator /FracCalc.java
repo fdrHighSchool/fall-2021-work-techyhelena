@@ -15,6 +15,7 @@ public class FracCalc {
         String userInput = s.nextLine();
         // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
         System.out.println(produceAnswer(userInput));
+        System.out.println("whole: " + getWhole(userInput) + " numerator: " + getNum(userInput) + " denominator: " + getDen(userInput));
         // Checkpoint 2: Accept user input multiple times.
     }//end main method
 
@@ -40,34 +41,43 @@ public class FracCalc {
 
         // Checkpoint 2: Return the second operand as a string representing each part.
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
-     public static String getNum(String input) {
-       //if there is a whole number the program will output it
-       //if not, the program will output 0
-       if String whole = firstOperand.substring(0, space) {
-         System.out.print("whole: " + whole);
-       } else {
-         System.out.print("whole: " + 0);
-       }
-       //variable for dash
-       String dash = input.indexOf("/");
-       String num = input.substring(space, dash);
 
-       System.out.print(" numerator: " + num);
+    //getting whole number if there is any
+    public static String getWhole(String input) {
+      if input.contains(" ") {
+        //return the whole number
+        //the space before the fraction determines that its a whole number
+        return input.substring(0, input.indexOf(" "));
+      } //ends if statement
+      //if there is a dash then theres no whole number
+      //the program will return 0 as the output
+      if input.contains("/") {
+        return "0"
+      }
+    } //ends getWhole()
 
+    //getting numerator
+    public static String getNum(String input) {
+      String space = input.indexOf(" ");
+      String dash = input.indexOf("/");
+      if input.contains(" ") && input.contains("/"){
+        //the numerator is usually after the whole number
+        //if we shift one from the space, we're left with the numerator
+        //the numerator is always before the dash
+        return input.substring(space + 1, dash);
+      } //ends if statement
      } //end getNum
 
      public static String getDen(String input) {
-       //if there is a whole number the program will output it
-       //if not, the program will output 0
-       if String whole = firstOperand.substring(0, space) {
-         System.out.print("whole: " + whole);
-       } else {
-         System.out.print("whole: " + 0);
-       }
-       //variable for dash
-       String dash = input.indexOf("/");
-       String den = input.substring(space, dash);
-       System.out.print("denominator: " + den);
+      //setting variables
+      String space = input.indexOf(" ");
+      String dash = input.indexOf("/");
+      //the denominator is always after the dash
+      if input.contains("/") {
+        return input.substring(dash + 1);
+      }
+
+
      } //end getDen
 
 
