@@ -15,7 +15,7 @@ public class FracCalc {
         String userInput = s.nextLine();
         // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
         System.out.println(produceAnswer(userInput));
-        System.out.println("whole: " + getWhole(userInput) + " numerator: " + getNum(userInput) + " denominator: " + getDen(userInput));
+        // System.out.println("whole: " + getWhole(userInput) + " numerator: " + getNum(userInput) + " denominator: " + getDen(userInput));
         // Checkpoint 2: Accept user input multiple times.
     }//end main method
 
@@ -43,48 +43,50 @@ public class FracCalc {
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
 
     //getting whole number if there is any
-    public static String getWhole(String input) {
-      if input.contains(" ") {
-        //return the whole number
-        //the space before the fraction determines that its a whole number
-        return input.substring(0, input.indexOf(" "));
-      } //ends if statement
-      //if there is a dash then theres no whole number
-      //the program will return 0 as the output
-      if input.contains("/") {
-        return "0"
-      }
-    } //ends getWhole()
 
     //getting numerator
     public static String getNum(String input) {
-      String space = input.indexOf(" ");
-      String dash = input.indexOf("/");
-      if input.contains(" ") && input.contains("/"){
+      //setting variables
+      int space = input.indexOf("_");
+      int dash = input.indexOf("/");
+      if (input.contains(" ") && input.contains("/")) {
         //the numerator is usually after the whole number
         //if we shift one from the space, we're left with the numerator
         //the numerator is always before the dash
         return input.substring(space + 1, dash);
       } //ends if statement
+
+      //for cases where theres a whole number
+      //make into improper fraction
+      //multiply whole number by denominator and add the product with numerator
+      int whole = input.indexof(0, space);
+      if (input.contains(whole)) {
+        whole * getDen()
+
+
+
+      }
      } //end getNum
 
      public static String getDen(String input) {
       //setting variables
-      String space = input.indexOf(" ");
-      String dash = input.indexOf("/");
+      int space = input.indexOf(" ");
+      int dash = input.indexOf("/");
       //the denominator is always after the dash
-      if input.contains("/") {
+      if (input.contains("/")) {
         return input.substring(dash + 1);
-      }
+      } // ends if statement
+
+      //we can assume that the denominator is 1
+      return 1;
 
 
      } //end getDen
 
-
-
         // Checkpoint 3: Evaluate the formula and return the result as a fraction.
         //               Example "4/5 * 1_2/4" returns "6/5".
         //               Note: Answer does not need to be reduced, but it must be correct.
+
         // Final project: All answers must be reduced.
         //               Example "4/5 * 1_2/4" returns "1_1/5".
 
