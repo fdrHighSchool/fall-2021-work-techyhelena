@@ -44,13 +44,16 @@ public class FracCalc {
         // 1_2/3
         if (firstOperand.indexOf("_") != -1) {
           mixedNum = true;
-          ws = firstOperand.substring(0, firstOperand.indexOf("/"));
+          ws = firstOperand.substring(0, firstOperand.indexOf("_"));
+          //making it into an improper
           int wholeInt = Integer.parseInt(ws);
+          int numInt(firstOperand.indexOf("_") + 1 , firstOperand.indexOf(""));
           System.out.println("whole: " + wholeInt);
+
+
         // 2/3
         } else {
-          ws = "0";
-          int wholeInt = Integer.parseInt(ws);
+          int wholeInt = 0;
           System.out.println("whole: " + wholeInt);
         }
 
@@ -61,13 +64,13 @@ public class FracCalc {
           int numInt = Integer.parseInt(ns);
           System.out.println("numerator: " + numInt);
         }
-
+        //when there is a whole number
         else if (firstOperand.contains("/") && firstOperand.contains("_") == true) {
-          ns = firstOperand.substring(firstOperand.indexOf("_"), firstOperand.indexOf("/"));
+          ns = firstOperand.substring(firstOperand.indexOf("_") + 1 , firstOperand.indexOf("/"));
           int numInt = Integer.parseInt(ns);
           System.out.println("numerator: " + numInt);
         }
-           else {
+        else {
           ns = "0";
           int numInt = Integer.parseInt(ns);
           System.out.println("numerator: " + numInt);
@@ -94,16 +97,22 @@ public class FracCalc {
 
         //whole number
         // 1_2/3
-        if (firstOperand.indexOf("_") != -1) {
+        int wholeInt2 = 0;
+
+        if (secondOperand.indexOf("_") != -1) {
           mixedNum2 = true;
           ws2 = secondOperand.substring(0, secondOperand.indexOf("_"));
-          int wholeInt2 = Integer.parseInt(ws2);
+          wholeInt2 = Integer.parseInt(ws2);
           System.out.println("whole: " + wholeInt2);
         // 2/3
         } else {
-          ws2 = "0";
-          int wholeInt2 = Integer.parseInt(ws2);
+          wholeInt2 = 0;
           System.out.println("whole: " + wholeInt2);
+        }
+
+        //converting it into an improper fraction
+        if (mixedNum2 == true) {
+          improper(wholeInt2);
         }
 
         //numerator
@@ -114,13 +123,12 @@ public class FracCalc {
         }
 
         else if (secondOperand.contains("/") && secondOperand.contains("_") == true) {
-          ns2 = secondOperand.substring(secondOperand.indexOf("_"), secondOperand.indexOf("/"));
+          ns2 = secondOperand.substring(secondOperand.indexOf("_") + 1, secondOperand.indexOf("/"));
           int numInt2 = Integer.parseInt(ns2);
           System.out.println("numerator: " + numInt2);
         }
         else {
-          ns2 = "0";
-          int numInt2 = Integer.parseInt(ns2);
+          int numInt2 = 0;
           System.out.println("numerator: " + numInt2);
         }
 
@@ -146,12 +154,11 @@ public class FracCalc {
         //               Note: Answer does not need to be reduced, but it must be correct.
 
     //make an improper method
-    // public static int Improper(int whole, int num, int den) {
-    //   int improperNum = whole * den;
-    //   improperNum = improperNum + num;
-    //   return 0; //placeholder
-      // return improperNum;
-    // }
+     public static int Improper(int whole, int num, int den) {
+       int improperNum = whole * den;
+       improperNum = improperNum + num;
+       return improperNum;
+     }
 
     // public static int doMath(int num1, int den1, String operand, int num, int den2) {
     //   if (operand.equals("*")) {
@@ -204,5 +211,28 @@ public class FracCalc {
 
 
     // }//end leastCommonMultiple
+
+
+    /*
+    public static int getNum(String frac) {
+      int num = 0;
+      int slashPos = frac.indexOf("/");
+
+      if (frac.contains("_")) {
+        int underScorePos = frac.indexOf("_");
+        int whole = Integer.parseInt(frac.substring(0, underScorePos));
+        int den = getDen(frac);
+        num = Integer.parseInt(frac.substring(underScorePos + 1, slashPos));
+
+        return whole * den + num;
+      } // end if mixed number
+
+      if (frac.contains("/")) {
+        return Integer.parseInt(frac.substring(0, slashPos));
+      } // end if normal fraction
+
+      return Integer.parseInt(frac);
+    } // end getNum method
+    */
 
 }//end class
