@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class FracCalc {
+public class Main {
     /**
      * Prompts user for input, passes that input to produceAnswer, then outputs the result.
      * @param args - unused
@@ -10,12 +10,12 @@ public class FracCalc {
         Scanner s = new Scanner(System.in);
         System.out.println("Fraction Calculator: Please enter a fraction problem. ");
         //allow user to type quit to stop
-        System.out.println("Disclaimer: If you wish to quit, simply type 'quit'");
+        //System.out.println("Disclaimer: If you wish to quit, simply type 'quit'");
+        //use .equals 
         //Getting user input
         String userInput = s.nextLine();
         // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
-        System.out.println(produceAnswer(userInput));
-        System.out.println("whole: " + getWhole(userInput) + " numerator:" + getNum(userInput) + " denominator: " + getDen(userInput));
+        produceAnswer(userInput);
         // Checkpoint 2: Accept user input multiple times.
     }//end main method
 
@@ -26,83 +26,158 @@ public class FracCalc {
      * @return the result of the fraction after it has been calculated.
      *      Example: return ==> "1_1/4"
      */
-    public static String produceAnswer(String input){
+    public static String produceAnswer(String input) {
         // TODO: Implement this function to produce the solution to the input
-        // Checkpoint 1: Return the second operand.  Example "4/5 * 1_2/4" returns "1_2/4".
-        //split the equation into parts and store them into variables
+        //seperating the fractions into two parts 
         int space = input.indexOf(" ");
         String firstOperand = input.substring(0, space);
         String secondOperand = input.substring(space + 3);
         String operator = input.substring(space + 1);
 
-        return secondOperand;
+        //FIRST OPERAND
+        boolean mixedNum = false; 
+        String ws = "";
+        String ns = "";
+        String ds = firstOperand.substring(firstOperand.indexOf("/") + 1);
+
+        //whole number 
+        // 1_2/3
+        if (firstOperand.indexOf("_") != -1) {
+          mixedNum = true; 
+          ws = firstOperand.substring(0, firstOperand.indexOf("_"));
+          int wholeInt = Integer.parseInt(ws);
+          System.out.println("whole: " + wholeInt);
+        // 2/3
+        } else {
+          ws = "0";
+          int wholeInt = Integer.parseInt(ws);
+          System.out.println("whole: " + wholeInt);
+        }
+
+        //numerator 
+        if (firstOperand.contains("_") == false) {
+          ns = firstOperand.substring(0, firstOperand.indexOf("/"));
+          int numInt = Integer.parseInt(ns);
+          System.out.println("numerator: " + numInt);
+        }
+
+        else if (firstOperand.contains("/") && firstOperand.contains("_") == true) {
+          ns = firstOperand.substring(firstOperand.indexOf("_") + 1);
+          int numInt = Integer.parseInt(ns);
+          System.out.println("numerator: " + numInt);
+        } 
+           else {
+          ns = "0";
+          int numInt = Integer.parseInt(ns); 
+          System.out.println("numerator: " + numInt);
+        }
+
+        //denominator 
+        //when there isn't a denominator
+        if (firstOperand.indexOf("/") == -1) {
+          ds = "1";
+          int denoInt = Integer.parseInt(ds);
+          System.out.println("denominator: "+ denoInt);
+        } 
+
+        else {
+          int denoInt = Integer.parseInt(ds);
+          System.out.println("denominator:" + denoInt);
+        } 
+        
+        //SECOND OPERAND 
+        boolean mixedNum2 = false; 
+        String ws2 = "";
+        String ns2 = "";
+        String ds2 = secondOperand.substring(secondOperand.indexOf("/") + 1);
+
+        //whole number 
+        // 1_2/3
+        if (firstOperand.indexOf("_") != -1) {
+          mixedNum2 = true; 
+          ws2 = secondOperand.substring(0, secondOperand.indexOf("_"));
+          int wholeInt2 = Integer.parseInt(ws2);
+          System.out.println("whole: " + wholeInt2);
+        // 2/3
+        } else {
+          ws2 = "0";
+          int wholeInt2 = Integer.parseInt(ws2);
+          System.out.println("whole: " + wholeInt2);
+        }
+
+        //numerator 
+        if (secondOperand.contains("_") == false) {
+          ns2 = secondOperand.substring(0, secondOperand.indexOf("/"));
+          int numInt2 = Integer.parseInt(ns2);
+          System.out.println("numerator: " + numInt2);
+        }
+
+        else if (secondOperand.contains("/") && secondOperand.contains("_") == true) {
+          ns2 = secondOperand.substring(secondOperand.indexOf("_") + 1);
+          int numInt2 = Integer.parseInt(ns2);
+          System.out.println("numerator: " + numInt2);
+        } 
+        else {
+          ns2 = "0";
+          int numInt2 = Integer.parseInt(ns2); 
+          System.out.println("numerator: " + numInt2);
+        }
+
+        //denominator 
+        //when there isn't a denominator
+        if (secondOperand.indexOf("/") == -1) {
+          ds2 = "1";
+          int denoInt2 = Integer.parseInt(ds2);
+          System.out.println("denominator: "+ denoInt2);
+        } 
+
+        else {
+          int denoInt2 = Integer.parseInt(ds2);
+          System.out.println("denominator:" + denoInt2);
+        } 
+
+        return "";
     }//end produceAnswer method
 
-        // Checkpoint 2: Return the second operand as a string representing each part.
-        //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
-
-    public static String getWhole(String input) {
-      int space = input.indexOf("_");
-      int dash = input.indexOf("/");
-
-      //no whole number
-      if (input.indexOf("_") != -1) {
-        return "0";
-      }
-
-      //for cases where theres a whole number
-      int whole = input.indexOf(0, space);
-      String getWholeNum = input.substring(0, space);
-      return getWholeNum;
-      // int getWholeNum = Integer.parseInt(input.substring(0, space));
-
-      //make into improper fraction
-      //multiply whole number by denominator and add the product with numerator
-    }
-
-    //getting numerator
-    public static String getNum(String input) {
-      //setting variables
-      int space = input.indexOf("_");
-      int dash = input.indexOf("/");
-      String num;
-
-      //when there is a whole number
-      if (input.contains("_") && input.contains("/")) {
-        return input.substring(space + 1, dash);
-      } //end if statement
-
-      //when there isn't a whole number
-      if (input.contains("/")) {
-        num = input.substring(0, dash);
-        return num;
-      }
-      return "0";
-     } //end getNum
-
-     //getting denominator
-     public static String getDen(String input) {
-      //setting variables
-      int space = input.indexOf("_");
-      int dash = input.indexOf("/");
-
-      //the denominator is always after the dash
-      if (input.contains("/")) {
-        return input.substring(dash + 1);
-        // return Integer.parseInt(input.substring(dash + 1));
-      } // ends if statement
-
-      return "1";
-     } //end getDen
 
         // Checkpoint 3: Evaluate the formula and return the result as a fraction.
         //               Example "4/5 * 1_2/4" returns "6/5".
         //               Note: Answer does not need to be reduced, but it must be correct.
 
-        // Final project: All answers must be reduced.
-        //               Example "4/5 * 1_2/4" returns "1_1/5".
+    //make an improper method 
+    public static int Improper(int whole, int num, int den) {
+      int improperNum = whole * den;
+      improperNum = improperNum + num; 
+      return 0; //placeholder
+      // return improperNum;
+    }
+
+    public static int doMath(int num1, int den1, String operand, int num, int den2) {
+      if (operand.equals("*")) {
+        multiply(num1, den1, num2, den2);
+      }
+
+      if (operand.equals("/")) {
+        divison(num, den1, num2, den2);
+      }
+    }
+
+    public static int multiply(int num1, int den1, int num2, int den2) {
+      int numProduct = num1 * num2;
+      int denProduct = den1 * den2; 
+      int totalProduct = numProduct + "/" + denProduct;
+      return 0; //placeholder
+      // return totalProduct;
+    }
 
 
+    public static int divison(int num1, int den1, int num2, int den2) {
+      int numQuotient = num1 * den2;
+      int denQuotient = num2 * den1; 
+      int totalQuotient = numQuotient + "/" + denQuotient;
+      return 0; //placeholder
+      //return totalQuotient;
+    }
 
 
     // TODO: Fill in the space below with helper methods
