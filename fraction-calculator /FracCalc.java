@@ -169,7 +169,7 @@ public class FracCalc {
         //               Example "4/5 * 1_2/4" returns "6/5".
         //               Note: Answer does not need to be reduced, but it must be correct.
 
-    //make an improper method
+//make an improper method
      public static int Improper(int whole, int num, int den) {
        int improperNum = whole * den;
        improperNum = improperNum + num;
@@ -185,30 +185,33 @@ public class FracCalc {
          divison(num, den1, num2, den2);
        }
      }
+
      public static int add(int num1, int den1, int num2, int den2) {
-       int add = (num1 * den2) + (num2 * den1);
-       int commonDen = den1 * den2;
-       int total = addNum + "/" +
+       int addNum = (num1 *den2) + (num2 * den1);
+       int commonDen = (den1 * den2);
+       int total = addNum + "/" + commonDen;
+       return total;
      }
 
      public static int subtract(int num1, int den1, int num2, int den2) {
-
+       int subtractNum = (num1 * den2) - (num2 * den1);
+       int commonDen = (den1 * den2);
+       int total = subtractNum + "/" + commonDen;
      }
 
      public static int multiply(int num1, int den1, int num2, int den2) {
        int numProduct = num1 * num2;
        int denProduct = den1 * den2;
        int totalProduct = numProduct + "/" + denProduct;
-       return 0; //placeholder
+       return total; //placeholder
       // return totalProduct;
      }
-
 
      public static int divison(int num1, int den1, int num2, int den2) {
        int numQuotient = num1 * den2;
        int denQuotient = num2 * den1;
-       int totalQuotient = numQuotient + "/" + denQuotient;
-       return 0; //placeholder
+       int total = numQuotient + "/" + denQuotient;
+       return total; //placeholder
       //return totalQuotient;
      }
 
