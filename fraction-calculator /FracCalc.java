@@ -52,8 +52,8 @@ public class FracCalc {
           ws = firstOperand.substring(0, firstOperand.indexOf("_"));
           //making it into an improper
           wholeInt = Integer.parseInt(ws);
-          numInt = firstOperand.indexOf("_") + 1 , firstOperand.indexOf("/"));
-          denInt = firstOperand.indexOf("/") + 1;
+          numInt = Integer.parseInt(firstOperand.substring(firstOperand.indexOf("_") + 1 , firstOperand.indexOf("/")));
+          denInt = Integer.parseIn(firstOperand.substring(firstOperand.indexOf("/") + 1));
           //add improper into numerator
 
           // numInt = wholeInt * denInt + numInt;
@@ -64,7 +64,7 @@ public class FracCalc {
         }
         else {
           int wholeInt = 0;
-          System.out.println("whole: " + wholeInt);
+          return wholeInt;
         }
 
         //numerator
@@ -72,37 +72,37 @@ public class FracCalc {
         if (firstOperand.contains("_") == false) {
           ns = firstOperand.substring(0, firstOperand.indexOf("/"));
           numInt = Integer.parseInt(ns);
-          System.out.println("numerator: " + numInt);
+          return numInt;
         }
         //when there is a whole number
         else if (firstOperand.contains("/") && firstOperand.contains("_") == true) {
           ns = firstOperand.substring(firstOperand.indexOf("_") + 1 , firstOperand.indexOf("/"));
           numInt = Integer.parseInt(ns);
-          System.out.println("numerator: " + numInt);
+          return numInt;
         }
         else {
           ns = "0";
           numInt = Integer.parseInt(ns);
-          System.out.println("numerator: " + numInt);
+          return numInt;
         }
         //when there is no dash
         if (firstOperand.conatins("/") == false) {
           ns = firstOperand.substring(0, operand);
           numInt = Integer.parseInt(ns);
+          return numInt;
         }
-
 
         //denominator
         //when there isn't a denominator
         if (firstOperand.indexOf("/") == -1) {
           ds = "1";
           denoInt = Integer.parseInt(ds);
-          System.out.println("denominator: "+ denoInt);
+          return denoInt;
         }
 
         else {
           denoInt = Integer.parseInt(ds);
-          System.out.println("denominator: " + denoInt);
+          return denoInt;
         }
 
         //SECOND OPERAND
@@ -122,29 +122,30 @@ public class FracCalc {
           mixedNum2 = true;
           ws2 = secondOperand.substring(0, secondOperand.indexOf("_"));
           wholeInt2 = Integer.parseInt(ws2);
+          //turn into improper fraction later
 
           //System.out.println("whole: " + wholeInt2);
         // 2/3
         } else {
           wholeInt2 = 0;
-          System.out.println("whole: " + wholeInt2);
+          return wholeInt2;
         }
 
         //numerator
         if (secondOperand.contains("_") == false) {
           ns2 = secondOperand.substring(0, secondOperand.indexOf("/"));
           numInt2 = Integer.parseInt(ns2);
-          System.out.println("numerator: " + numInt2);
+          return = numInt2;
         }
 
         else if (secondOperand.contains("/") && secondOperand.contains("_") == true) {
           ns2 = secondOperand.substring(secondOperand.indexOf("_") + 1, secondOperand.indexOf("/"));
           numInt2 = Integer.parseInt(ns2);
-          System.out.println("numerator: " + numInt2);
+          return numInt2;
         }
         else {
           numInt2 = 0;
-          System.out.println("numerator: " + numInt2);
+          return numInt2;
         }
 
         //denominator
@@ -152,12 +153,12 @@ public class FracCalc {
         if (secondOperand.indexOf("/") == -1) {
           ds2 = "1";
           denoInt2 = Integer.parseInt(ds2);
-          System.out.println("denominator: "+ denoInt2);
+          return denoInt2;
         }
 
         else {
           denoInt2 = Integer.parseInt(ds2);
-          System.out.println("denominator:" + denoInt2);
+          return denoInt2;
         }
 
         return "";
@@ -183,6 +184,15 @@ public class FracCalc {
        if (operand.equals("/")) {
          divison(num, den1, num2, den2);
        }
+     }
+     public static int add(int num1, int den1, int num2, int den2) {
+       int add = (num1 * den2) + (num2 * den1);
+       int commonDen = den1 * den2;
+       int total = addNum + "/" +
+     }
+
+     public static int subtract(int num1, int den1, int num2, int den2) {
+
      }
 
      public static int multiply(int num1, int den1, int num2, int den2) {
