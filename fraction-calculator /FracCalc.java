@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class FracCalc {
+public class Main {
     /**
      * Prompts user for input, passes that input to produceAnswer, then outputs the result.
      * @param args - unused
@@ -9,23 +9,11 @@ public class FracCalc {
         // TODO: Read the input from the user and call produceAnswer with an equation
         Scanner s = new Scanner(System.in);
         System.out.println("Fraction Calculator: Please enter a fraction problem. ");
-        //allow user to type quit to stop
-        //System.out.println("Disclaimer: If you wish to quit, simply type 'quit'");
-        //use .equals
         //Getting user input
         String userInput = s.nextLine();
-        // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
         produceAnswer(userInput);
-        // Checkpoint 2: Accept user input multiple times.
-    }//end main method
+    } //end main method
 
-    /**
-     * produceAnswer - This function takes a String 'input' and produces the result.
-     * @param input - A fraction string that needs to be evaluated.  For your program, this will be the user input.
-     *      Example: input ==> "1/2 + 3/4"
-     * @return the result of the fraction after it has been calculated.
-     *      Example: return ==> "1_1/4"
-     */
     public static String produceAnswer(String input) {
         // TODO: Implement this function to produce the solution to the input
         //seperating the fractions into two parts
@@ -43,27 +31,24 @@ public class FracCalc {
         //integer variables
         int wholeInt = 0;
         int numInt = 0;
-        int denInt = 0;
+        int denInt;
 
         //whole number
         // 1_2/3
         if (firstOperand.indexOf("_") != -1) {
           mixedNum = true;
           ws = firstOperand.substring(0, firstOperand.indexOf("_"));
-          //making it into an improper
           wholeInt = Integer.parseInt(ws);
-          numInt = Integer.parseInt(firstOperand.substring(firstOperand.indexOf("_") + 1 , firstOperand.indexOf("/")));
-          denInt = Integer.parseIn(firstOperand.substring(firstOperand.indexOf("/") + 1));
-          //add improper into numerator
+          //make into improper fraction
+          numInt = Integer.parseInt(firstOperand.substring(firstOperand.indexOf("_")), firstOperand.indexOf("/"));
+          denInt = Integer.parseInt(ds);
 
-          // numInt = wholeInt * denInt + numInt;
-          // return numInt;
-          // System.out.println("whole: " + wholeInt);
+          numInt = wholeInt * denInt + numInt;
+          return numInt;
+        }
 
         // 2/3
-        }
         else {
-          int wholeInt = 0;
           return wholeInt;
         }
 
@@ -75,34 +60,27 @@ public class FracCalc {
           return numInt;
         }
         //when there is a whole number
-        else if (firstOperand.contains("/") && firstOperand.contains("_") == true) {
+        if (mixedNum == true) {
           ns = firstOperand.substring(firstOperand.indexOf("_") + 1 , firstOperand.indexOf("/"));
           numInt = Integer.parseInt(ns);
           return numInt;
         }
-        else {
-          ns = "0";
-          numInt = Integer.parseInt(ns);
-          return numInt;
-        }
-        //when there is no dash
-        if (firstOperand.conatins("/") == false) {
-          ns = firstOperand.substring(0, operand);
+        //2 + 2 case / no num or den
+        if (firstOperand.contains("_") == false && firstOperand.contains("/") == false) {
+          ns = firstOperand.substring(0, operator);
           numInt = Integer.parseInt(ns);
           return numInt;
         }
 
         //denominator
-        //when there isn't a denominator
         if (firstOperand.indexOf("/") == -1) {
-          ds = "1";
-          denoInt = Integer.parseInt(ds);
-          return denoInt;
+          denInt = 1;
+          return denInt;
         }
 
         else {
-          denoInt = Integer.parseInt(ds);
-          return denoInt;
+          denInt = Integer.parseInt(ds);
+          return denInt;
         }
 
         //SECOND OPERAND
@@ -114,7 +92,7 @@ public class FracCalc {
         //variables for the integers
         int wholeInt2 = 0;
         int numInt2 = 0;
-        int denInt2 = 0;
+        int denInt2;
 
         //whole number
         // 1_2/3
@@ -122,46 +100,70 @@ public class FracCalc {
           mixedNum2 = true;
           ws2 = secondOperand.substring(0, secondOperand.indexOf("_"));
           wholeInt2 = Integer.parseInt(ws2);
-          //turn into improper fraction later
+          //make into improper fraction
+          numInt = Integer.parseInt(secondOperand.substring(secondOperand.indexOf("_")), secondOperand.indexOf("/"));
+          denInt = Integer.parseInt(ds);
 
-          //System.out.println("whole: " + wholeInt2);
+          numInt = wholeInt * denInt + numInt;
+          return numInt;
+        }
+
         // 2/3
-        } else {
-          wholeInt2 = 0;
+        else {
           return wholeInt2;
         }
 
         //numerator
+        //when there is no whole number
         if (secondOperand.contains("_") == false) {
           ns2 = secondOperand.substring(0, secondOperand.indexOf("/"));
           numInt2 = Integer.parseInt(ns2);
-          return = numInt2;
+          return numInt2;
         }
 
-        else if (secondOperand.contains("/") && secondOperand.contains("_") == true) {
+        //when there is a whole number
+        if (mixedNum == true) {
           ns2 = secondOperand.substring(secondOperand.indexOf("_") + 1, secondOperand.indexOf("/"));
           numInt2 = Integer.parseInt(ns2);
           return numInt2;
         }
-        else {
-          numInt2 = 0;
+
+        //2 + 2 case / no num or den
+        if (secondOperand.contains("/") == false && secondOperand.contains("_") == false) {
+          ns2 = secondOperand.substring(0, operator);
+          numInt2 = Integer.parseInt(ns2);
           return numInt2;
         }
 
         //denominator
         //when there isn't a denominator
         if (secondOperand.indexOf("/") == -1) {
-          ds2 = "1";
-          denoInt2 = Integer.parseInt(ds2);
-          return denoInt2;
+          denInt2 = 1;
+          return denInt2;
         }
 
         else {
-          denoInt2 = Integer.parseInt(ds2);
-          return denoInt2;
+          denInt2 = Integer.parseInt(ds2);
+          return denInt2;
         }
 
-        return "";
+        //PERFORING MATH METHODS
+        if (operator.equals("+")) {
+          return add(numInt, denInt, numInt2, denInt2);
+        }
+
+        else if (operator.equals("-")) {
+          return subtract(numInt, denInt, numInt2, denInt2);
+        }
+
+        else if (operator.equals("*")) {
+          return multiply(numInt, denInt, numInt2, denInt2);
+        }
+
+        else {
+          return division(numInt, denInt, numInt2, denInt2);
+        }
+
     }//end produceAnswer method
 
 
@@ -169,47 +171,32 @@ public class FracCalc {
         //               Example "4/5 * 1_2/4" returns "6/5".
         //               Note: Answer does not need to be reduced, but it must be correct.
 
-    //make an improper method
-     public static int Improper(int whole, int num, int den) {
-       int improperNum = whole * den;
-       improperNum = improperNum + num;
-       return improperNum;
-     }
 
-     public static int doMath(int num1, int den1, String operand, int num, int den2) {
-       if (operand.equals("*")) {
-         multiply(num1, den1, num2, den2);
-       }
-
-       if (operand.equals("/")) {
-         divison(num, den1, num2, den2);
-       }
-     }
      public static int add(int num1, int den1, int num2, int den2) {
-       int add = (num1 * den2) + (num2 * den1);
-       int commonDen = den1 * den2;
-       int total = addNum + "/" +
+       int addNum = (num1 *den2) + (num2 * den1);
+       int commonDen = (den1 * den2);
+       int total = addNum + "/" + commonDen;
+       return total;
      }
 
      public static int subtract(int num1, int den1, int num2, int den2) {
-
+       int subtractNum = (num1 * den2) - (num2 * den1);
+       int commonDen = (den1 * den2);
+       int total = subtractNum + "/" + commonDen;
      }
 
      public static int multiply(int num1, int den1, int num2, int den2) {
        int numProduct = num1 * num2;
        int denProduct = den1 * den2;
-       int totalProduct = numProduct + "/" + denProduct;
-       return 0; //placeholder
-      // return totalProduct;
+       int total = numProduct + "/" + denProduct;
+       return total;
      }
-
 
      public static int divison(int num1, int den1, int num2, int den2) {
        int numQuotient = num1 * den2;
        int denQuotient = num2 * den1;
-       int totalQuotient = numQuotient + "/" + denQuotient;
-       return 0; //placeholder
-      //return totalQuotient;
+       int total = numQuotient + "/" + denQuotient;
+       return total;
      }
 
 
