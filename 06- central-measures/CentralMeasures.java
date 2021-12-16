@@ -8,8 +8,8 @@ public class CentralMeasures {
    //total sum = 55
    //avg = 5.5
    int[] myNum = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //num of values = 10
-   System.out.println("The average of TestDummy is: " + average(myNum));
-   System.out.println("Range of TestDummy: " + range(myNum));
+   // System.out.println("The average of TestDummy is: " + average(myNum));
+   // System.out.println("Range of TestDummy: " + range(myNum));
 
    int[] medArr = {2, 5, 10, 9, 1, 3, 4, 6, 5, 8};
 
@@ -26,9 +26,12 @@ public class CentralMeasures {
    } //ending for loop
 
    //testing if it stores data corectly
-   System.out.println("randomArray values: " + Arrays.toString(randomArray));
-   System.out.println("Average of randomArray: " + average(randomArray));
-   System.out.println("Range of randomArray" + range(randomArray) );
+   // System.out.println("randomArray values: " + Arrays.toString(randomArray));
+   // System.out.println("Average of randomArray: " + average(randomArray));
+   // System.out.println("Range of randomArray" + range(randomArray) );
+
+   int[] testDummy = {5, 7, 1, 9, 10, 3, 8, 8, 2};
+   System.out.println(mode(testDummy));
  } // end main
 
  public static double average(int[] arr) {
@@ -47,25 +50,37 @@ public class CentralMeasures {
 
  //create an array for both the mode and the frequency
  //check which is the greatest value in frequency
- //find the index of the largest freq.
-
- public static int mode(int[] arr) {
+ //find the index of the largest freq in original array
+ public static String mode(int[] arr) {
   int max = findMax(arr);
   //TEST DUMMY
-  int[] testDummy = {5, 7, 1, 9, 8, 2, 8, 2, 2};
+
   //another array to check which number appears the most
   int[] freqDummy = new int[max + 1];
 
   // this loop adds values into freqDummy
-  for(int i = 0; i < testDummy.length; i++) {
+  for(int i = 0; i < arr.length; i++) {
     freqDummy[arr[i]]++;
   } //closes for loop
 
+  System.out.println(Arrays.toString(freqDummy));
+  //declare variable for max reps
+  int maxReps = findMax(freqDummy);
+  System.out.println(maxReps);
+  // printing out the index of the maxReps
 
-  //have program say theres no mode
+  // No mode
+  if(findMax(freqDummy) == 1) {
+    return "NO MODE";
+  }
 
+  for(int i = 0; i < freqDummy.length; i++) {
+    if(maxReps == freqDummy[i]) {
+      return "" + i;
+    } // end if statement
+  } // end for loop
 
-   return 0; //placeholder for now
+   return "0"; //placeholder for now
  }
 
  // method to find max val
@@ -110,7 +125,10 @@ public class CentralMeasures {
  public static double median(int[] arr) {
    int temp = 0;
    for(int j = 0; j < arr.length; j++){
-     int
+     for() {
+        
+     }
+
 
    }
    return 0; //placeholder
