@@ -120,17 +120,21 @@ public class CentralMeasures {
 
  // median
  // put in numerical order
- // one method: replace values in each index to place everything in numerical order
- // second method: to make another array for the numerical order
+// then
  public static double median(int[] arr) {
+   int min = 0;
+   int minLoc = 0;
    int temp = 0;
+   //loop to put values in numerical order
    for(int j = 0; j < arr.length; j++){
-     for() {
-        
-     }
+
+     for(int i = 0; i < arr.length; i++) {
+
+     } // end for loop for i
+
+   } // end for loop for j
 
 
-   }
    return 0; //placeholder
  }
 
