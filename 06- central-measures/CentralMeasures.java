@@ -126,8 +126,9 @@ public class CentralMeasures {
    int minLoc = 0;
    int temp = 0;
    //loop to put values in numerical order
+   //index of the min should start at the outer loop index
    for(int j = 0; j < arr.length; j++){
-
+     // should start at index + 1  
      for(int i = 0; i < arr.length; i++) {
 
      } // end for loop for i
