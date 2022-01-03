@@ -12,6 +12,7 @@ public class CentralMeasures {
    // System.out.println("Range of TestDummy: " + range(myNum));
 
    int[] medArr = {2, 5, 10, 9, 1, 3, 4, 6, 5, 8};
+   System.out.println("Median: " + median(medArr));
 
    // 100 random values in an array
    int[] randomArray = new int[100];
@@ -25,13 +26,13 @@ public class CentralMeasures {
      randomArray[i] = randNum;
    } //ending for loop
 
-   //testing if it stores data corectly
+   // testing
    // System.out.println("randomArray values: " + Arrays.toString(randomArray));
    // System.out.println("Average of randomArray: " + average(randomArray));
    // System.out.println("Range of randomArray" + range(randomArray) );
 
    int[] testDummy = {5, 7, 1, 9, 10, 3, 8, 8, 2};
-   System.out.println(mode(testDummy));
+   System.out.println("Mode: "+ mode(testDummy));
  } // end main
 
  public static double average(int[] arr) {
@@ -63,10 +64,10 @@ public class CentralMeasures {
     freqDummy[arr[i]]++;
   } //closes for loop
 
-  System.out.println(Arrays.toString(freqDummy));
+  System.out.println("Displaying values in freqDummy: " + Arrays.toString(freqDummy));
   //declare variable for max reps
   int maxReps = findMax(freqDummy);
-  System.out.println(maxReps);
+  // System.out.println(maxReps);
   // printing out the index of the maxReps
 
   // No mode
@@ -119,26 +120,42 @@ public class CentralMeasures {
  }
 
  // median
- // put in numerical order
-// then
  public static double median(int[] arr) {
-   int min = 0;
-   int minLoc = 0;
-   int temp = 0;
-   //loop to put values in numerical order
-   //index of the min should start at the outer loop index
-   for(int j = 0; j < arr.length; j++){
-     // should start at index + 1  
-     for(int i = 0; i < arr.length; i++) {
+  // outer loop to track which index to sort next
+  for (int i = 0; i < arr.length; i++) {
 
-     } // end for loop for i
+  // assume min is in correct spot
+  int min = arr[i];
+  int minLoc = i;
 
-   } // end for loop for j
+  // store temp for swap later on
+  int temp = arr[i];
 
+  // search for min of remaining values
+  for (int j = i + 1; j < arr.length; j++) {
 
-   return 0; //placeholder
+    // found a new min!
+    if (arr[j] < min) {
+      // update info on what and where min is
+      min = arr[j];
+      minLoc = j;
+    } // end if statement
+  } // end inner for loop
+
+  // perform the swap
+  arr[i] = min;
+  arr[minLoc] = temp;
+  } // end outer for loop
+
+  //figuring out the median
+  // if array has even amount of values
+  if (arr.length % 2 == 0) {
+    // double - in case its a decimal
+    return (double)(arr[arr.length/2] + arr[arr.length/2-1]) / 2;
+  } // end if statement
+  else {
+    return arr[arr.length/2];
+  } // end else statement
  }
-
-
 
 } //end class
