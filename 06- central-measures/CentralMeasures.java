@@ -26,7 +26,11 @@ public class CentralMeasures {
      randomArray[i] = randNum;
    } //ending for loop
 
+<<<<<<< HEAD
    // testing
+=======
+   // testing 
+>>>>>>> 4ecf368958bddc87e0443deed88d69aabfc24be8
    // System.out.println("randomArray values: " + Arrays.toString(randomArray));
    // System.out.println("Average of randomArray: " + average(randomArray));
    // System.out.println("Range of randomArray" + range(randomArray) );
@@ -147,12 +151,21 @@ public class CentralMeasures {
   arr[minLoc] = temp;
   } // end outer for loop
 
+<<<<<<< HEAD
   //figuring out the median
   // if array has even amount of values
   if (arr.length % 2 == 0) {
     // double - in case its a decimal
     return (double)(arr[arr.length/2] + arr[arr.length/2-1]) / 2;
   } // end if statement
+=======
+  //figuring out the median 
+  // if array has even amount of values
+  if (arr.length % 2 == 0) { 
+    // double - in case its a decimal
+    return (double)(arr[arr.length/2] + arr[arr.length/2-1]) / 2;
+  } // end if statement 
+>>>>>>> 4ecf368958bddc87e0443deed88d69aabfc24be8
   else {
     return arr[arr.length/2];
   } // end else statement
