@@ -21,7 +21,11 @@ public class Exams {
     } // end for loop
 
     // display the first 5 grades
-    System.out.println(Arrays.toString(sampleStudent));
+    // System.out.println(Arrays.toString(sampleStudent));
+    // System.out.println(Arrays.toString(secondArray));
+
+
+
   } // end main method
 
 /*
@@ -29,10 +33,15 @@ A) Write a method that adds a 6th exam
 to the sample student’s set of grades.
 */
 
-  public static int secondArray(int[] arr) {
-    int[] modifyStudent = new int[sampleStudent + 1];
+  public static int[] secondArray(int[] arr) {
+    // increasing slot by one
+    int[] modifyGrades = new int[arr.length + 1];
     // grab the original value in first and then add the sixth value last
+    for(int i = 0; i < arr.length; i++) {
+      modifyGrades[i] = arr[i];
+    } //closes for loop
 
+    return modifyGrades;
   } // end secondArray method
 
 /*
