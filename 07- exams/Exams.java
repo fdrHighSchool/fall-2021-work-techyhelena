@@ -21,8 +21,8 @@ public class Exams {
     } // end for loop
 
     // display the first 5 grades
-    // System.out.println(Arrays.toString(sampleStudent));
-    // System.out.println(Arrays.toString(secondArray));
+     System.out.println(Arrays.toString(sampleStudent));
+     System.out.println(Arrays.toString(secondArray(modifyGrades)));
 
 
 
@@ -41,6 +41,10 @@ to the sample student’s set of grades.
       modifyGrades[i] = arr[i];
     } //closes for loop
 
+    // add the last grade to the last slot in the new array
+    modifyGrades[modifyGrades.length - 1] = (int)(Math.random() * 46) + 55;
+
+
     return modifyGrades;
   } // end secondArray method
 
@@ -50,6 +54,13 @@ of 5 grades and replaces the lowest grade if
 the 6th grade is greater than it.
 If it is not, then the original 5 grades remain.
 */
+
+  //public static int[] replaceGrade(int[] grades) {
+
+  //}
+
+
+
 
 
 } // end class
