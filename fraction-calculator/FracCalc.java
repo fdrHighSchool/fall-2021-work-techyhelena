@@ -39,21 +39,13 @@ public class Main {
           mixedNum = true;
           ws = firstOperand.substring(0, firstOperand.indexOf("_"));
           wholeInt = Integer.parseInt(ws);
-<<<<<<< HEAD
-          //make into improper fraction
-          numInt = Integer.parseInt(firstOperand.substring(firstOperand.indexOf("_")), firstOperand.indexOf("/"));
-          denInt = Integer.parseInt(ds);
-
-          numInt = wholeInt * denInt + numInt;
-          return numInt;
-=======
+          
           //make into improper fraction 
           numInt = Integer.parseInt(firstOperand.substring(firstOperand.indexOf("_")), firstOperand.indexOf("/"));
           denInt = Integer.parseInt(ds);
 
           numInt = wholeInt * denInt + numInt; 
           return numInt; 
->>>>>>> 0eaa77d3cb3bee4edc3fc85f8f68db53b513cb87
         }
 
         // 2/3
@@ -74,11 +66,7 @@ public class Main {
           numInt = Integer.parseInt(ns);
           return numInt;
         }
-<<<<<<< HEAD
         //2 + 2 case / no num or den
-=======
-        //2 + 2 case / no num or den 
->>>>>>> 0eaa77d3cb3bee4edc3fc85f8f68db53b513cb87
         if (firstOperand.contains("_") == false && firstOperand.contains("/") == false) {
           ns = firstOperand.substring(0, operator);
           numInt = Integer.parseInt(ns);
@@ -113,21 +101,12 @@ public class Main {
           mixedNum2 = true;
           ws2 = secondOperand.substring(0, secondOperand.indexOf("_"));
           wholeInt2 = Integer.parseInt(ws2);
-<<<<<<< HEAD
           //make into improper fraction
           numInt = Integer.parseInt(secondOperand.substring(secondOperand.indexOf("_")), secondOperand.indexOf("/"));
           denInt = Integer.parseInt(ds);
 
           numInt = wholeInt * denInt + numInt;
           return numInt;
-=======
-          //make into improper fraction 
-          numInt = Integer.parseInt(secondOperand.substring(secondOperand.indexOf("_")), secondOperand.indexOf("/"));
-          denInt = Integer.parseInt(ds);
-          
-          numInt = wholeInt * denInt + numInt; 
-          return numInt; 
->>>>>>> 0eaa77d3cb3bee4edc3fc85f8f68db53b513cb87
         }
 
         // 2/3
@@ -150,11 +129,7 @@ public class Main {
           return numInt2;
         }
 
-<<<<<<< HEAD
         //2 + 2 case / no num or den
-=======
-        //2 + 2 case / no num or den 
->>>>>>> 0eaa77d3cb3bee4edc3fc85f8f68db53b513cb87
         if (secondOperand.contains("/") == false && secondOperand.contains("_") == false) {
           ns2 = secondOperand.substring(0, operator);
           numInt2 = Integer.parseInt(ns2);
@@ -166,7 +141,6 @@ public class Main {
         if (secondOperand.indexOf("/") == -1) {
           denInt2 = 1;
           return denInt2;
-<<<<<<< HEAD
         }
 
         else {
@@ -188,29 +162,6 @@ public class Main {
         }
 
         else {
-=======
-        }
-
-        else {
-          denInt2 = Integer.parseInt(ds2);
-          return denInt2;
-        }
-
-        //PERFORING MATH METHODS 
-        if (operator.equals("+")) {
-          return add(numInt, denInt, numInt2, denInt2);
-        }
-
-        else if (operator.equals("-")) {
-          return subtract(numInt, denInt, numInt2, denInt2);
-        }
-
-        else if (operator.equals("*")) {
-          return multiply(numInt, denInt, numInt2, denInt2);
-        }
-
-        else {
->>>>>>> 0eaa77d3cb3bee4edc3fc85f8f68db53b513cb87
           return division(numInt, denInt, numInt2, denInt2);
         }
 
@@ -222,10 +173,6 @@ public class Main {
         //               Note: Answer does not need to be reduced, but it must be correct.
  
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0eaa77d3cb3bee4edc3fc85f8f68db53b513cb87
      public static int add(int num1, int den1, int num2, int den2) {
        int addNum = (num1 *den2) + (num2 * den1);
        int commonDen = (den1 * den2);
