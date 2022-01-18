@@ -4,15 +4,23 @@ public class connectFour {
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
 
-    String[][] board = new String[6][7];
+    String[][] board = new String[6][7]; // column by row
+    // getting user input 
 
-    System.out.println("\u001B[32mConnect Four!\nPress enter to start.");
-    s.nextLine();
+    System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column and row");
+    int userInput = s.nextInt();
 
+    // starting grid 
     fillBoard(board);
     displayBoard(board);
 
+    // testing user input
+    playRound(userInput, board);
+    displayBoard(board);
+    // System.out.println(Arrays.toString(board));
+
     // example, player 1 chooses col 3
+    /*
     board[5][2] = "[X]";
     s.nextLine();
     displayBoard(board);
@@ -21,7 +29,7 @@ public class connectFour {
     board[4][2] = "[O]";
     s.nextLine();
     displayBoard(board);
-
+    */
   } // end main method
 
 
@@ -43,5 +51,18 @@ public class connectFour {
     } // end outer for loop
   } // end displayBoard method
 
+  // goal: get user input 
+  // have user input in the game
+  // if row is occupied, decrease row index by one 
+  
+
+  public static String[][] playRound(int input, String[][] board) {
+    for(int i = board.length - 1; i >= 0; i--) { 
+      if(board[i][input] == "[ ]") {
+        board[i][input] = "[X]";
+      }
+    } 
+    return board;
+  }
 
 } // end class
