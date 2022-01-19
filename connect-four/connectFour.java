@@ -5,14 +5,16 @@ public class connectFour {
     Scanner s = new Scanner(System.in);
 
     String[][] board = new String[6][7]; // column by row
-    // getting user input 
+    String letter = "[X]";
 
-    System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column and row");
-    int userInput = s.nextInt();
 
-    // starting grid 
+    System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column");
+    // starting grid
     fillBoard(board);
     displayBoard(board);
+    int userInput = s.nextInt();
+    System.out.println("Player 1: Now choose a row");
+
 
     // testing user input
     playRound(userInput, board);
@@ -51,18 +53,31 @@ public class connectFour {
     } // end outer for loop
   } // end displayBoard method
 
-  // goal: get user input 
-  // have user input in the game
-  // if row is occupied, decrease row index by one 
-  
 
   public static String[][] playRound(int input, String[][] board) {
-    for(int i = board.length - 1; i >= 0; i--) { 
-      if(board[i][input] == "[ ]") {
-        board[i][input] = "[X]";
+    // column
+    for(int i = board.length - 1; i >= 0; i-- ) {
+      
+    }
+
+    for(int i = board.length - 1; i >= 0; i--) {
+      if(board[i][input - 1][] == "[ ]") {
+        if(letter = "[X]") {
+          letter = "[O]";
+          board[i][input - 1] = letter;
+        }
+
       }
-    } 
+    }
     return board;
   }
+
+  /*
+  to determine which row to go into, check the highest number and decrease by one if there is an occupied spot
+  */
+
+
+// to check win -> check after 4 rounds for efficiency
+
 
 } // end class
