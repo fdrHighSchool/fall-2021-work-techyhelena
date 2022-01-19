@@ -7,8 +7,14 @@ public class connectFour {
     String[][] board = new String[6][7]; // column by row
     // getting user input 
 
-    System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column and row");
-    int userInput = s.nextInt();
+    System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column");
+    int userC = s.nextInt();
+    System.out.println("\u001B[32mConnect Four!\n Player 1: Now choose a row");
+    int userR = s.nextInt();
+
+    // boolean loop = false; 
+    String letter = "X";
+     
 
     // starting grid 
     fillBoard(board);
@@ -17,7 +23,7 @@ public class connectFour {
     // testing user input
     playRound(userInput, board);
     displayBoard(board);
-    // System.out.println(Arrays.toString(board));
+    // System.out.println(Arrays.toString(board)); 
 
     // example, player 1 chooses col 3
     /*
@@ -56,13 +62,15 @@ public class connectFour {
   // if row is occupied, decrease row index by one 
   
 
-  public static String[][] playRound(int input, String[][] board) {
+  public static String[][] playRound(int c, int r, String[][] board) {
     for(int i = board.length - 1; i >= 0; i--) { 
-      if(board[i][input] == "[ ]") {
-        board[i][input] = "[X]";
+      if(board[i][c] == "[ ]") {
+        board[i][c] = "[X]";
       }
     } 
     return board;
   }
+  
+  // figure out how to display it in different rows 
 
 } // end class
