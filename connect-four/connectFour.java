@@ -9,36 +9,39 @@ public class connectFour {
 
     System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column");
     int userC = s.nextInt();
-    System.out.println("\u001B[32mConnect Four!\n Player 1: Now choose a row");
-    int userR = s.nextInt();
 
     String letter = "";
-
+    
     // starting grid
     fillBoard(board);
     displayBoard(board);
 
-    // testing user input
-    playRound(userInput, board);
-    displayBoard(board);
-
     int turn = 1; 
     while(turn == 1) {
-      turn++;
       // player 1 would be an odd value (X) and player 2 would be an even value (O)
       if(turn % 2 != 0) {
         // player 1's turn 
         System.out.println("Player 1's turn");
         // place X
         letter = "[X]";
+        // run user input
+        playRound(userC, letter, board);
+        displayBoard(board);
       } 
+
+      turn++;
 
       if(turn % 2 == 0) {
         // player 2's turn 
         System.out.println("Player 2's turn");
         // place O
         letter = "[O]";
+        // run user input
+        playRound(userC, letter, board);
+        displayBoard(board);
       }
+      
+
     }
 
     // example, player 1 chooses col 3
@@ -77,18 +80,17 @@ public class connectFour {
   // have user input in the game
   // if row is occupied, decrease row index by one
 
-  public static String[][] playRound(int c, int player, String[][] board) {
+  public static String[][] playRound(int c, String letter, String[][] board) {
     // finding row
     // start from the bottom
-
+    for(int row = board.length - 1; i > 0; i--) {
+      
     for(int i = board.length - 1; i >= 0; i--) {
-      if(board[size - 1] = "[ ]") {
         if(board[i][c - 1] == "[ ]") {
           board[i][c - 1] = letter;
-        } // end second for loop
+        } // end if statement 
       } // end first for loop
-
-    }
+    } // end row loop
     return board;
   }
 
