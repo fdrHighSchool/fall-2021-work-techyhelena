@@ -15,7 +15,6 @@ public class connectFour {
     // boolean loop = false;
     String letter = "X";
 
-
     // starting grid
     fillBoard(board);
     displayBoard(board);
@@ -23,7 +22,8 @@ public class connectFour {
     // testing user input
     playRound(userInput, board);
     displayBoard(board);
-    // System.out.println(Arrays.toString(board));
+
+
 
     // example, player 1 chooses col 3
     /*
@@ -36,6 +36,10 @@ public class connectFour {
     s.nextLine();
     displayBoard(board);
     */
+    while() {
+
+    }
+
   } // end main method
 
 
@@ -61,12 +65,20 @@ public class connectFour {
   // have user input in the game
   // if row is occupied, decrease row index by one
 
+  // turn variable
+  // player 1 would be an odd value (X) and player 2 would be an even value (O)
 
-  public static String[][] playRound(int c, int r, String[][] board) {
+  public static String[][] playRound(int c, int player, String[][] board) {
+    // finding row
+    // start from the bottom
+
     for(int i = board.length - 1; i >= 0; i--) {
-      if(board[i][c] == "[ ]") {
-        board[i][c] = "[X]";
-      }
+      if(board[size - 1] = "[ ]") {
+        if(board[i][c - 1] == "[ ]") {
+          board[i][c - 1] = "[X]";
+        } // end second for loop
+      } // end first for loop
+
     }
     return board;
   }
