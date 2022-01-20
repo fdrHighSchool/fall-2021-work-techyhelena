@@ -7,6 +7,17 @@ public class connectFour {
     String[][] board = new String[6][7]; // column by row
     String letter = "[X]";
 
+<<<<<<< HEAD
+=======
+    System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column");
+    int userC = s.nextInt();
+    System.out.println("\u001B[32mConnect Four!\n Player 1: Now choose a row");
+    int userR = s.nextInt();
+
+    // boolean loop = false; 
+    String letter = "X";
+     
+>>>>>>> 5186137fb79e444f3c52cadd881e2b6955d421a9
 
     System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column");
     // starting grid
@@ -19,7 +30,7 @@ public class connectFour {
     // testing user input
     playRound(userInput, board);
     displayBoard(board);
-    // System.out.println(Arrays.toString(board));
+    // System.out.println(Arrays.toString(board)); 
 
     // example, player 1 chooses col 3
     /*
@@ -54,6 +65,7 @@ public class connectFour {
   } // end displayBoard method
 
 
+<<<<<<< HEAD
   public static String[][] playRound(int input, String[][] board) {
     // column
     for(int i = board.length - 1; i >= 0; i-- ) {
@@ -67,10 +79,18 @@ public class connectFour {
           board[i][input - 1] = letter;
         }
 
+=======
+  public static String[][] playRound(int c, int r, String[][] board) {
+    for(int i = board.length - 1; i >= 0; i--) { 
+      if(board[i][c] == "[ ]") {
+        board[i][c] = "[X]";
+>>>>>>> 5186137fb79e444f3c52cadd881e2b6955d421a9
       }
     }
     return board;
   }
+  
+  // figure out how to display it in different rows 
 
   /*
   to determine which row to go into, check the highest number and decrease by one if there is an occupied spot
