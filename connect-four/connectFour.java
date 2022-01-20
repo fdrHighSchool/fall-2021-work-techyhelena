@@ -5,32 +5,25 @@ public class connectFour {
     Scanner s = new Scanner(System.in);
 
     String[][] board = new String[6][7]; // column by row
-    String letter = "[X]";
+    // getting user input
 
-<<<<<<< HEAD
-=======
     System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column");
     int userC = s.nextInt();
     System.out.println("\u001B[32mConnect Four!\n Player 1: Now choose a row");
     int userR = s.nextInt();
 
-    // boolean loop = false; 
+    // boolean loop = false;
     String letter = "X";
-     
->>>>>>> 5186137fb79e444f3c52cadd881e2b6955d421a9
 
-    System.out.println("\u001B[32mConnect Four!\n Player 1: Choose a column");
+
     // starting grid
     fillBoard(board);
     displayBoard(board);
-    int userInput = s.nextInt();
-    System.out.println("Player 1: Now choose a row");
-
 
     // testing user input
     playRound(userInput, board);
     displayBoard(board);
-    // System.out.println(Arrays.toString(board)); 
+    // System.out.println(Arrays.toString(board));
 
     // example, player 1 chooses col 3
     /*
@@ -64,40 +57,20 @@ public class connectFour {
     } // end outer for loop
   } // end displayBoard method
 
+  // goal: get user input
+  // have user input in the game
+  // if row is occupied, decrease row index by one
 
-<<<<<<< HEAD
-  public static String[][] playRound(int input, String[][] board) {
-    // column
-    for(int i = board.length - 1; i >= 0; i-- ) {
-      
-    }
 
-    for(int i = board.length - 1; i >= 0; i--) {
-      if(board[i][input - 1][] == "[ ]") {
-        if(letter = "[X]") {
-          letter = "[O]";
-          board[i][input - 1] = letter;
-        }
-
-=======
   public static String[][] playRound(int c, int r, String[][] board) {
-    for(int i = board.length - 1; i >= 0; i--) { 
+    for(int i = board.length - 1; i >= 0; i--) {
       if(board[i][c] == "[ ]") {
         board[i][c] = "[X]";
->>>>>>> 5186137fb79e444f3c52cadd881e2b6955d421a9
       }
     }
     return board;
   }
-  
-  // figure out how to display it in different rows 
 
-  /*
-  to determine which row to go into, check the highest number and decrease by one if there is an occupied spot
-  */
-
-
-// to check win -> check after 4 rounds for efficiency
-
+  // figure out how to display it in different rows
 
 } // end class
