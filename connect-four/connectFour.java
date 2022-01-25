@@ -47,7 +47,8 @@ public class connectFour {
   } // end main method
 // conditions
   public static boolean winConditions (String[][] board){
-
+    
+    return false;
   }
 // win conditions
 // vertical (level 1)
@@ -77,12 +78,12 @@ public class connectFour {
   // goal: get user input
   // have user input in the game
   // if row is occupied, decrease row index by one
-  public static String[][] playRound(int c, String letter, String[][] board) {
+  public static String[][] playRound(int c, String player, String[][] board) {
     // finding row
     // start from the bottom
     for(int i = board.length - 1; i >= 0; i--) {
         if(board[i][c - 1] == "[ ]") {
-          board[i][c - 1] = letter;
+          board[i][c - 1] = player;
           break;
         } // end if statement
       } // end first for loop
