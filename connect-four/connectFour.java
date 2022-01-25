@@ -47,8 +47,15 @@ public class connectFour {
   } // end main method
 // conditions
   public static boolean winConditions (String[][] board){
+    // vertical win
+    for(int row = 0; row < board[0].length; row++) {
 
+    }
+    return false;
   }
+
+// to check if user input a valid value
+
 // win conditions
 // vertical (level 1)
 // make if statement into the for loop to check all the elements in the array
