@@ -17,13 +17,18 @@ public class connectFour {
     int turn = 1;
 
 
-// board[0].length (the length of the row)
     while(!endGame) {
       // player 1 would be an odd value (X) and player 2 would be an even value (O)
       if(turn % 2 != 0) {
         // player 1's turn
         System.out.println("\u001B[32mPlayer 1: Choose a column");
         userC = s.nextInt();
+        // checking if user put in a valid input
+        validInput(userC, board);
+        if(validInput(userC ,board) == false) {
+          System.out.println("You've entered an invalid input, please try again.");
+          s.nextInt(); // allowing them to try again 
+        }
         // place X
         letter = "[X]";
         // run user input
@@ -37,6 +42,10 @@ public class connectFour {
         // player 2's turn
         System.out.println("\u001B[32mPlayer 2: Choose a column");
         userC = s.nextInt();
+        if(validInput(userC ,board) == false) {
+          System.out.println("You've entered an invalid input, please try again.");
+          s.nextInt(); // allowing them to try again 
+        }
         // place O
         letter = "[O]";
         // run user input
@@ -45,17 +54,6 @@ public class connectFour {
       }
     }
   } // end main method
-// conditions
-  public static boolean winConditions (String[][] board){
-    
-    return false;
-  }
-// win conditions
-// vertical (level 1)
-// make if statement into the for loop to check all the elements in the array
-
-// horizontal (level 2)
-// diagonal (level 3)
 
   public static void fillBoard (String[][] board) {
     for (int row = 0; row < board.length; row++) {
@@ -89,4 +87,32 @@ public class connectFour {
       } // end first for loop
     return board;
   }
+
+  // to check if user input a valid value
+  public static boolean validInput (int c, String[][] board) {
+    // reference: https://stackoverflow.com/questions/40800450/java-what-does-the-first-index-represent-in-2d-array#:~:text=Well%20board.length%20returns%20the,all%20Arrays%20stored%20in%20board%20.
+    if(c > board[0].length) { // board[0].length (the length of the row)
+      return false;
+    }
+    return true;
+  }
+
+  // to check if spot is taken 
+  public static boolean takenSpot(int c, String[][] board) {
+    if(!board[c - 1].equals("[ ]")) {
+      return true;
+    }
+    return false;
+  }
+
+  // win conditions
+  // vertical (level 1)
+  // public static boolean verticalWin(String[][] board) {
+
+  // }
+
+
+  // horizontal (level 2)
+  // diagonal (level 3)
+
 } // end class
