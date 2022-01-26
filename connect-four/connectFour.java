@@ -4,7 +4,8 @@ public class connectFour {
     Scanner s = new Scanner(System.in);
     String[][] board = new String[6][7]; // column by row
 
-    System.out.println("\u001B[32mWelcome to Connect Four! Choose a column from 1-7");
+    System.out.println("\u001B[32mWelcome to Connect Four! Press enter to begin!");
+    s.nextLine();
     // starting grid
     fillBoard(board);
     displayBoard(board);
@@ -26,7 +27,11 @@ public class connectFour {
         validInput(userC, board);
         if(validInput(userC ,board) == false) {
           System.out.println("You've entered an invalid input, please try again.");
-          s.nextInt(); // allowing them to try again 
+          s.nextInt(); // allowing them to try again
+        }
+        if(takenSpot(userC, board) == true) {
+          System.out.println("Please choose another column, that spot has been taken.");
+          s.nextInt();
         }
         // place X
         letter = "[X]";
@@ -43,7 +48,11 @@ public class connectFour {
         userC = s.nextInt();
         if(validInput(userC ,board) == false) {
           System.out.println("You've entered an invalid input, please try again.");
-          s.nextInt(); // allowing them to try again 
+          s.nextInt(); // allowing them to try again
+        }
+        if(takenSpot(userC, board) == true) {
+          System.out.println("Please choose another column, that spot has been taken.");
+          userC = s.nextInt();
         }
         // place O
         letter = "[O]";
@@ -95,7 +104,7 @@ public class connectFour {
     return true;
   }
 
-  // to check if spot is taken 
+  // to check if spot is taken
   public static boolean takenSpot(int c, String[][] board) {
     if(!board[c - 1].equals("[ ]")) {
       return true;
