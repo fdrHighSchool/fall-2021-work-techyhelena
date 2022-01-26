@@ -4,7 +4,6 @@ public class connectFour {
     Scanner s = new Scanner(System.in);
     String[][] board = new String[6][7]; // column by row
 
-    // try finding a way to make the empty grid appear after this text so that the users can have a visual
     System.out.println("\u001B[32mWelcome to Connect Four! Choose a column from 1-7");
     // starting grid
     fillBoard(board);
@@ -90,7 +89,6 @@ public class connectFour {
 
   // to check if user input a valid value
   public static boolean validInput (int c, String[][] board) {
-    // reference: https://stackoverflow.com/questions/40800450/java-what-does-the-first-index-represent-in-2d-array#:~:text=Well%20board.length%20returns%20the,all%20Arrays%20stored%20in%20board%20.
     if(c > board[0].length) { // board[0].length (the length of the row)
       return false;
     }
