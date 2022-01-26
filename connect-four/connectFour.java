@@ -27,12 +27,12 @@ public class connectFour {
         validInput(userC, board);
         if(validInput(userC ,board) == false) {
           System.out.println("You've entered an invalid input, please try again.");
-          s.nextInt(); // allowing them to try again
+          userC = s.nextInt(); // allowing them to try again
         }
-        if(takenSpot(userC, board) == true) {
-          System.out.println("Please choose another column, that spot has been taken.");
-          s.nextInt();
-        }
+        // if(takenSpot(userC, board) == true) {
+        //   System.out.println("Please choose another column, that spot has been taken.");
+        //   userC = s.nextInt();
+        // }
         // place X
         letter = "[X]";
         // run user input
@@ -48,12 +48,12 @@ public class connectFour {
         userC = s.nextInt();
         if(validInput(userC ,board) == false) {
           System.out.println("You've entered an invalid input, please try again.");
-          s.nextInt(); // allowing them to try again
+          userC = s.nextInt(); // allowing them to try again
         }
-        if(takenSpot(userC, board) == true) {
-          System.out.println("Please choose another column, that spot has been taken.");
-          userC = s.nextInt();
-        }
+        // if(takenSpot(userC, board) == true) {
+        //   System.out.println("Please choose another column, that spot has been taken.");
+        //   userC = s.nextInt(); // overwrite
+        // }
         // place O
         letter = "[O]";
         // run user input
