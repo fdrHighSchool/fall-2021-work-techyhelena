@@ -29,10 +29,11 @@ public class connectFour {
           System.out.println("You've entered an invalid input, please try again.");
           userC = s.nextInt(); // allowing them to try again
         }
-        // if(takenSpot(userC, board) == true) {
-        //   System.out.println("Please choose another column, that spot has been taken.");
-        //   userC = s.nextInt();
-        // }
+        takenSpot(userC, board);
+         if(takenSpot(userC, board) == true) {
+           System.out.println("Please choose another column, the column you picked is full.");
+           userC = s.nextInt();
+         }
         // place X
         letter = "[X]";
         // run user input
@@ -50,10 +51,10 @@ public class connectFour {
           System.out.println("You've entered an invalid input, please try again.");
           userC = s.nextInt(); // allowing them to try again
         }
-        // if(takenSpot(userC, board) == true) {
-        //   System.out.println("Please choose another column, that spot has been taken.");
-        //   userC = s.nextInt(); // overwrite
-        // }
+         if(takenSpot(userC, board) == true) {
+           System.out.println("Please choose another column, the column you picked is full.");
+           userC = s.nextInt(); // overwrite
+         }
         // place O
         letter = "[O]";
         // run user input
@@ -114,9 +115,12 @@ public class connectFour {
 
   // win conditions
   // vertical (level 1)
-  // public static boolean verticalWin(String[][] board) {
-
-  // }
+  // public static boolean verticalWin(int c, String[][] board) {
+  //   for(int i = board.length - 1; ) {
+  //
+  //   }
+  //   return false;
+  //  }
 
 
   // horizontal (level 2)
