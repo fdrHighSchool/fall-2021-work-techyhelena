@@ -51,6 +51,7 @@ public class connectFour {
           System.out.println("You've entered an invalid input, please try again.");
           userC = s.nextInt(); // allowing them to try again
         }
+        takenSpot(userC, board);
          if(takenSpot(userC, board) == true) {
            System.out.println("Please choose another column, the column you picked is full.");
            userC = s.nextInt(); // overwrite
