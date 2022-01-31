@@ -5,7 +5,7 @@ public class connectFour {
     String[][] board = new String[6][7]; // column by row
 
     System.out.println("\u001B[32mWelcome to Connect Four! Press enter to begin!");
-    s.nextLine();
+     s.nextLine();
     // starting grid
     fillBoard(board);
     displayBoard(board);
@@ -14,78 +14,79 @@ public class connectFour {
     int userC;
     String letter = "";
     boolean endGame = false;
-    int turn = 1;
+    int turn = 0;
 
 
     while(!endGame) {
+      turn++; 
       // player 1 would be an odd value (X) and player 2 would be an even value (O)
       if(turn % 2 != 0) {
         // player 1's turn
         System.out.println("\u001B[32mPlayer 1: Choose a column");
-        userC = s.nextInt();
-        // checking if user put in a valid input
-        validInput(userC, board);
-        if(validInput(userC ,board) == false) {
-          System.out.println("You've entered an invalid input, please try again.");
-          userC = s.nextInt(); // allowing them to try again
-        }
-        takenSpot(userC, board);
-         if(takenSpot(userC, board) == true) {
-           System.out.println("Please choose another column, the column you picked is full.");
-           userC = s.nextInt();
-         }
-        // place X
         letter = "[X]";
-        // run user input
-        playRound(userC, letter, board);
-        displayBoard(board);
       }
-
-      turn++;
 
       if(turn % 2 == 0) {
         // player 2's turn
         System.out.println("\u001B[32mPlayer 2: Choose a column");
-        userC = s.nextInt();
-        if(validInput(userC ,board) == false) {
-          System.out.println("You've entered an invalid input, please try again.");
-          userC = s.nextInt(); // allowing them to try again
-        }
-        takenSpot(userC, board);
-         if(takenSpot(userC, board) == true) {
-           System.out.println("Please choose another column, the column you picked is full.");
-           userC = s.nextInt(); // overwrite
-         }
-        // place O
         letter = "[O]";
-        // run user input
-        playRound(userC, letter, board);
-        displayBoard(board);
       }
-    }
+
+        // get user column 
+        userC = s.nextInt();
+      
+      // checking conditions before taking user input into game
+      if (!fullBoard(board)) {
+        // checking if user put in a valid input
+        if(validInput(userC ,board) == true) {
+          // checking if the column chosen is taken
+          if(colFull(userC, board) == false) {
+             // run user input
+            playRound(userC, letter, board);
+            displayBoard(board);
+          }
+        }
+      }
+
+      // tie condition 
+      if(fullBoard(board)) {
+        System.out.println("\u001B[32m\nTie! Game Over!");
+        // maybe add a feature where the user can play again 
+        break; // end game so the loop does not continue 
+      }
+      // if user input does not satisfy the conditions above 
+      else if(validInput(userC, board) == false) {
+        System.out.println("You've entered an invalid input, please try again.");
+        turn--; // prompting player to go again
+      }
+
+      else if(colFull(userC, board) == true) {
+        System.out.println("Please choose another column, the column you picked is full.");
+        turn--; // prompting player to go again 
+      }
+    } // end while loop 
+        
   } // end main method
 
   public static void fillBoard (String[][] board) {
     for (int row = 0; row < board.length; row++) {
       for (int col = 0; col < board[row].length; col++) {
         board[row][col] = "[ ]";
-      } // end inner loop
-    } // end outer loop
-  } // end fillBoard method
+      } 
+    } 
+  }                                                                 
 
   public static void displayBoard(String[][] board) {
     System.out.println("\033[H\033[2J"); // clear the terminal
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[row].length; col++) {
         System.out.print(board[row][col] + " ");
-      } // end inner for loop
+      } 
       System.out.println();
-    } // end outer for loop
-  } // end displayBoard method
+    } 
+  } 
 
-  // goal: get user input
-  // have user input in the game
-  // if row is occupied, decrease row index by one
+
   public static String[][] playRound(int c, String player, String[][] board) {
     // finding row
     // start from the bottom
@@ -99,6 +100,8 @@ public class connectFour {
   }
 
   // to check if user input a valid value
+  // board.length = vertical (straight down)
+  // board[0].length = horizontal
   public static boolean validInput (int c, String[][] board) {
     if(c > board[0].length) { // board[0].length (the length of the row)
       return false;
@@ -106,13 +109,32 @@ public class connectFour {
     return true;
   }
 
-  // to check if spot is taken
-  public static boolean takenSpot(int c, String[][] board) {
-    if(!board[c - 1].equals("[ ]")) {
+  // to check if column is full
+  public static boolean colFull(int c, String[][] board) {
+    // loop to run through every column to check 
+    // i is the row # and c is the column that the player inputed
+    // c-1 because the program starts at 0 not 1.
+    for(int i = 0; i < board.length - 1; i++) {
+      if(board[i][c - 1] == "[ ]") {
       return true;
+      }
+    
     }
     return false;
   }
+  // if the whole board is full -  tie condition 
+  public static boolean fullBoard(String[][] board) {
+    // loop to check all cols and rows
+    for(int row = 0; row < board.length - 1; row++) {
+      for(int col = 0; col < board[row].length; col++) {
+        if(board[row][col] == "[ ]") { // checking for empty spaces in the array
+          return false; 
+        }
+      }
+    }
+    return true;
+  }
+
 
   // win conditions
   // vertical (level 1)
