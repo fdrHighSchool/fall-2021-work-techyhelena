@@ -52,8 +52,9 @@ public class connectFour {
       if(fullBoard(board)) {
         System.out.println("\u001B[32m\nTie! Game Over!");
         // maybe add a feature where the user can play again 
-        break; // end game so the loop does not continue 
+        endGame = true; // end game so the loop does not continue 
       }
+
       // if user input does not satisfy the conditions above 
       else if(validInput(userC, board) == false) {
         System.out.println("You've entered an invalid input, please try again.");
@@ -116,11 +117,11 @@ public class connectFour {
     // c-1 because the program starts at 0 not 1.
     for(int i = 0; i < board.length - 1; i++) {
       if(board[i][c - 1] == "[ ]") {
-      return true;
+      return false;
       }
     
     }
-    return false;
+    return true;
   }
   // if the whole board is full -  tie condition 
   public static boolean fullBoard(String[][] board) {
