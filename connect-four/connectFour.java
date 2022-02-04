@@ -52,7 +52,13 @@ public class connectFour {
       if(fullBoard(board)) {
         System.out.println("\u001B[32m\nTie! Game Over!");
         // maybe add a feature where the user can play again 
-        endGame = true; // end game so the loop does not continue 
+        endGame = true; // closes game  
+      }
+
+      // win conditions 
+      if(verticalWin(board)) {
+        System.out.println("\u001B[32m\nGame Over!");
+        endGame = true;
       }
 
       // if user input does not satisfy the conditions above 
@@ -104,7 +110,7 @@ public class connectFour {
   // board.length = vertical (straight down)
   // board[0].length = horizontal
   public static boolean validInput (int c, String[][] board) {
-    if(c > board[0].length) { // board[0].length (the length of the row)
+    if(c > board[0].length || c <= 0) { // board[0].length (the length of the row)
       return false;
     }
     return true;
@@ -139,12 +145,23 @@ public class connectFour {
 
   // win conditions
   // vertical (level 1)
-  // public static boolean verticalWin(int c, String[][] board) {
-  //   for(int i = board.length - 1; ) {
-  //
-  //   }
-  //   return false;
-  //  }
+  public static boolean verticalWin(String[][] board) {
+    // focus on column - board[0].length
+    for(int col = 0; col < board[0].length - 1; col++) { // .length - 1 because program starts at 0 not 1
+      // row-- because we're starting from bottom up 
+      for(int row = 0; row < board.length - 1; row--) {
+        // if player 1 wins
+        if(board[col][row].equals(board[col - 1][row]) && board[col][row].equals(board[col - 2][row]) && board[col][row].equals("[X]")) {
+          return true;
+        }
+        // if player 2 wins
+        if(board[col][row].equals(board[col - 1][row]) && board[col][row].equals(board[col - 2][row]) && board[col][row].equals("[O]")) {
+          return true;
+        }
+      }
+    }
+    return false;
+   }
 
 
   // horizontal (level 2)
